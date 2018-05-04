@@ -6,7 +6,7 @@ module.exports = function mercurySchema (schema) {
     Object.keys(response).forEach(k => (response[k] = fastJson(response[k])))
   }
 
-  return function middleware (req, res, next) {
+  return function mercurySchemaMiddleware (req, res, next) {
     if (response) {
       res.stringify = response
     }
