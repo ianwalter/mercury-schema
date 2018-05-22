@@ -1,25 +1,29 @@
 {
   "name": "@appjumpstart/mercury-schema",
   "version": "1.0.0",
-  "description": "",
+  "description": "An Express/Connect-compatible middleware for validation and serialization using ajv and fast-json-stringify",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "connect",
+    "mercury",
+    "validation",
+    "serialization",
+    "ajv",
+    "fast-json-stringify"
+  ],
+  "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "license": "ISC",
-  "peerDependencies": {
-    "@appjumpstart/mercury": "file:~/appjumpstart/mercury",
-    "@appjumpstart/mercury-send": "file:~/appjumpstart/mercury-send"
-  },
+  "peerDependencies": {},
   "dependencies": {
+    "@ianwalter/base-error": "^1.1.0",
     "fast-json-stringify": "^1.4.0"
   },
   "devDependencies": {
-    "jest": "^22.4.3",
-    "@appjumpstart/mercury": "file:~/appjumpstart/mercury",
-    "@appjumpstart/mercury-send": "file:~/appjumpstart/mercury-send"
+    "jest": "^22.4.3"
   },
   "jest": {
     "testEnvironment": "node"
