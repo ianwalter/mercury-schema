@@ -3,6 +3,7 @@ const Ajv = require('ajv')
 const { ValidationError, InvalidStringifyParameterError } = require('./errors')
 
 const ajv = new Ajv()
+const $async = true
 
 function mercurySchema (schema) {
   let stringify
@@ -86,6 +87,7 @@ function mercurySchema (schema) {
       }
     }
 
+    // Pony up!
     next()
   }
 }

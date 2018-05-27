@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`request with invalid length fails validation 1`] = `
+Object {
+  "dataPath": ".email",
+  "keyword": "minLength",
+  "message": "should NOT be shorter than 5 characters",
+  "params": Object {
+    "limit": 5,
+  },
+  "schemaPath": "#/properties/email/minLength",
+}
+`;
+
+exports[`request with missing required property fails validation 1`] = `
+Object {
+  "dataPath": "",
+  "keyword": "required",
+  "message": "should have required property 'name'",
+  "params": Object {
+    "missingProperty": "name",
+  },
+  "schemaPath": "#/required",
+}
+`;

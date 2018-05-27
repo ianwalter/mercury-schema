@@ -1,4 +1,4 @@
-# [INCOMPLETE] mercury-schema
+# mercury-schema
 > An Express/Connect-compatible middleware for validation and serialization
 > using ajv and fast-json-stringify
 

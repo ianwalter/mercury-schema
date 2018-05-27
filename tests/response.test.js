@@ -1,37 +1,22 @@
-// const Mercury = require('mercury')
-// const send = require('mercury-send')
-// const schema = require('../')
+const { mercurySchema } = require('../')
+const inject = require('light-my-request')
 
-// const userSchema = {
-//   type: 'object',
-//   properties: {
-//     id: { type: 'integer' },
-//     name: { type: 'string', minLength: 2, maxLength: 255 },
-//     email: { type: 'string', minLength: 5, maxLength: 255 },
-//     emailVerified: { type: 'boolean', default: false },
-//     createdAt: { type: 'string' },
-//     updatedAt: { type: 'string' }
-//   }
-// }
+const { userSchema, user } = require('./fixtures')
 
-// const user = {
-//   id: 1,
-//   name: 'Test User',
-//   email: 'user@test.io',
-//   emailVerified: true,
-//   password: 'Ou812',
-//   createdAt: new Date().toISOString(),
-//   updatedAt: new Date().toISOString()
-// }
-
-test('response with user schema', () => {
-  // const app = new Mercury()
-  // app.use(send)
-  // const responseSchema = { response: { 200: userSchema } }
-  // app.router.get('/', schema(responseSchema), (req, res) => res.send(user))
-  // const response = await app.inject({ url: '/' })
-  // const payload = JSON.parse(response.payload)
-  // expect(payload.id).toEqual(user.id)
-  // expect(payload.name).toEqual(user.name)
-  // expect(payload.password).toBeUndefined()
+test('response with user schema', async () => {
+  try {
+    const handler = (req, res) => {
+      mercurySchema({ response: userSchema })(req, res, () => {
+        res.writeHead(200, { 'Content-Type': 'application/json' })
+        res.end(res.stringify(user))
+      })
+    }
+    const response = await inject(handler, { url: '/' })
+    const payload = JSON.parse(response.payload)
+    expect(payload.id).toEqual(user.id)
+    expect(payload.name).toEqual(user.name)
+    expect(payload.password).toBeUndefined()
+  } catch (err) {
+    fail(err)
+  }
 })
