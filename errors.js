@@ -2,7 +2,7 @@ const BaseError = require('@ianwalter/base-error')
 
 class ValidationError extends BaseError {
   constructor ({ errors }) {
-    super('TODO') // TODO: error message.
+    super('Invalid request')
     this.errors = errors
   }
 }

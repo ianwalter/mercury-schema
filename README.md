@@ -7,12 +7,14 @@
 
 ## About
 
-
+`mercury-schema` is middleware you stick in front of your route handler to
+provide 🔥 fast schema validation of the request body and/or automatic
+serialization of the handler's response data.
 
 ## Installation
 
-```fish
-❯ npm install @appjumpstart/mercury-schema --save
+```
+npm install @appjumpstart/mercury-schema --save
 ```
 
 ## Usage
@@ -75,7 +77,7 @@ serialization feature within the [Fastify](https://fastify.io) framework.
 <a href="https://github.com/appjumpstart">
   <img
     alt="AppJumpstart"
-    src="https://appjumpstart.nyc3.digitaloceanspaces.com/assets/appjumpstart-transparent.jpg"
+    src="https://appjumpstart.nyc3.digitaloceanspaces.com/assets/appjumpstart-transparent.png"
     height="50">
 </a>
 
