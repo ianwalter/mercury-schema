@@ -1,6 +1,6 @@
 const fastJson = require('fast-json-stringify')
 const Ajv = require('ajv')
-const { ValidationError, InvalidStringifyParameterError } = require('./errors')
+const { InvalidStringifyParameterError } = require('./errors')
 
 const ajv = new Ajv()
 const $async = true
@@ -63,7 +63,7 @@ function mercurySchema (schema) {
         // Store validation result and errors in the request so it can be used
         // by next middleware or by a request handler.
         req.valid = false
-        req.validationError = new ValidationError(err)
+        req.validation = err
       }
     }
 
@@ -92,4 +92,35 @@ function mercurySchema (schema) {
   }
 }
 
-module.exports = { mercurySchema, ValidationError }
+const validationSchema = {
+  type: 'object',
+  properties: {
+    message: { type: 'string' },
+    validation: { type: 'boolean' },
+    errors: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          keyword: { type: 'string' },
+          dataPath: { type: 'string' },
+          schemaPath: { type: 'string' },
+          params: {
+            type: 'object',
+            properties: {
+              type: { type: 'string' },
+              missingProperty: { type: 'string' }
+            }
+          },
+          message: { type: 'string' }
+        }
+      }
+    }
+  }
+}
+
+module.exports = {
+  mercurySchema,
+  validationSchema,
+  ValidationError: Ajv.ValidationError
+}

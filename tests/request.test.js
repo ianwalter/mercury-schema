@@ -24,9 +24,8 @@ test('request with missing required property fails validation', async () => {
       req.body = JSON.parse(req._lightMyRequest.payload)
       mercurySchema({ request: userSchema })(req, res, () => {
         expect(req.valid).toBe(false)
-        expect(req.validationError).toBeInstanceOf(Error)
-        expect(req.validationError).toBeInstanceOf(ValidationError)
-        const [error] = req.validationError.errors
+        expect(req.validation).toBeInstanceOf(ValidationError)
+        const [error] = req.validation.errors
         expect(error).toMatchSnapshot()
         res.end()
       })
@@ -44,10 +43,8 @@ test('request with invalid length fails validation', async () => {
       req.body = JSON.parse(req._lightMyRequest.payload)
       mercurySchema({ request: userSchema })(req, res, () => {
         expect(req.valid).toBe(false)
-        expect(req.validationError).toBeInstanceOf(Error)
-        expect(req.validationError).toBeInstanceOf(ValidationError)
-        expect(req.validationError.name).toBe('ValidationError')
-        const [error] = req.validationError.errors
+        expect(req.validation).toBeInstanceOf(ValidationError)
+        const [error] = req.validation.errors
         expect(error).toMatchSnapshot()
         res.end()
       })

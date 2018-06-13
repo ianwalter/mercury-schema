@@ -1,12 +1,5 @@
 const BaseError = require('@ianwalter/base-error')
 
-class ValidationError extends BaseError {
-  constructor ({ errors }) {
-    super('Invalid request')
-    this.errors = errors
-  }
-}
-
 class InvalidStringifyParameterError extends BaseError {
   constructor (typeOfKey, isStringifyMap) {
     if (isStringifyMap) {
@@ -17,4 +10,4 @@ class InvalidStringifyParameterError extends BaseError {
   }
 }
 
-module.exports = { ValidationError, InvalidStringifyParameterError }
+module.exports = { InvalidStringifyParameterError }
