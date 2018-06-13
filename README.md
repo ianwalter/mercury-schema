@@ -4,6 +4,7 @@
 
 [![npm page][npm-image]][npm-url]
 [![appjumpstart chat][gitter-image]][gitter-url]
+[![Join the community on Spectrum][spectrum-image]][spectrum-url]
 
 ## About
 
@@ -58,7 +59,7 @@ app.post('/contact', [
         // const body = res.stringify({ message: 'Your message has been sent' })
         // res.type('json').end(body)
       } else {
-        res.status(400).send(req.validationError)
+        res.status(400).send(req.validation)
       }
     } catch (err) {
       next(err)
@@ -83,5 +84,5 @@ serialization feature within the [Fastify](https://fastify.io) framework.
 
 [npm-image]: https://img.shields.io/npm/v/@appjumpstart/mercury-schema.svg
 [npm-url]: https://www.npmjs.com/package/@appjumpstart/mercury-schema
-[gitter-image]: https://img.shields.io/gitter/room/appjumpstart/appjumpstart.svg
-[gitter-url]: https://gitter.im/appjumpstart
+[spectrum-image]: https://withspectrum.github.io/badge/badge.svg
+[spectrum-url]: https://spectrum.chat/appjumpstart/general
