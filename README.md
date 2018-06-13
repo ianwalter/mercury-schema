@@ -3,7 +3,6 @@
 > using ajv and fast-json-stringify
 
 [![npm page][npm-image]][npm-url]
-[![appjumpstart chat][gitter-image]][gitter-url]
 [![Join the community on Spectrum][spectrum-image]][spectrum-url]
 
 ## About
