@@ -17,6 +17,10 @@
   ],
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:appjumpstart/mercury-schema.git"
+  },
   "dependencies": {
     "@ianwalter/base-error": "^1.1.0",
     "fast-json-stringify": "^1.4.0"
