@@ -1,6 +1,6 @@
 {
   "name": "@appjumpstart/mercury-schema",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An Express/Connect-compatible middleware for validation and serialization using ajv and fast-json-stringify",
   "main": "index.js",
   "scripts": {
