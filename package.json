@@ -27,7 +27,8 @@
   },
   "devDependencies": {
     "jest": "^22.4.3",
-    "light-my-request": "^2.0.2"
+    "light-my-request": "^2.0.2",
+    "np": "^3.0.4"
   },
   "jest": {
     "testEnvironment": "node"
